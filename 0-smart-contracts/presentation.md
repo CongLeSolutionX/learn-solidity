@@ -70,3 +70,11 @@ https://ethereum.org/en/developers/docs/evm/opcodes/
 3. ⛽️ Transactions set a gas limit
 4. 🎯 Transactions send calldata, targetting a contract method
 5. 🌐 Similarly smart contracts can call each other within the one transaction
+
+---
+
+The amount of gas is deterministically calculated based on the opcodes used. For simple opcodes, like `ADD` or `MUL` the gas amount is a fixed amount. For more complicated opcodes, like `SSTORE`, there are several factors that go into the gas calculation and there are even gas refunds for clearing of a storage slot.
+
+See evm codes for more details:
+https://github.com/smlxl/evm.codes
+https://www.evm.codes/?fork=shanghai
