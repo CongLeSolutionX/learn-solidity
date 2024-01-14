@@ -1,0 +1,3 @@
+[submodule "1a-value-types/store-2-bool/lib/forge-std"]
+	path = 1a-value-types/store-2-bool/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
