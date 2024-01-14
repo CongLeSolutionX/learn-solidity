@@ -25,6 +25,15 @@ $ forge build
 
 ```shell
 $ forge test
+# or
+$ forge test -vv
+
+# If you have many test files and want to test specific test file by using its exact test name, then:
+forge test -vvvv --match-test testBools
+forge test -vvvv --match-test testA
+forge test -vvvv --match-test testB
+forge test -vvvv --match-test testSum
+# The last argument in the command line is the name of the test
 ```
 
 ### Format
