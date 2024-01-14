@@ -9,21 +9,21 @@ contract ExampleTest is Test {
     B public b;
 
     function setUp() public {
-        b = new B();
-        a = new A{ value: 1 ether }(address(b));
+        b = new B(); // Deploy B
+        a = new A{ value: 1 ether }(address(b)); // Deploy A with 1 ether and B's address
     }
 
-    function testExample() public {
-        assertEq(address(a).balance, 1 ether);
-        assertEq(address(b).balance, 0 ether);
+    function testSendEther() public { // Test that A sends half of its balance to B
+        assertEq(address(a).balance, 1 ether); // a's balance is 1 ether
+        assertEq(address(b).balance, 0 ether); // b's balance is 0 ether
         a.payHalf();
-        assertEq(address(a).balance, 0.5 ether);
-        assertEq(address(b).balance, 0.5 ether);
+        assertEq(address(a).balance, 0.5 ether); // a's balance is 0.5 ether
+        assertEq(address(b).balance, 0.5 ether); // b's balance is 0.5 ether
         a.payHalf();
-        assertEq(address(a).balance, 0.25 ether);
-        assertEq(address(b).balance, 0.75 ether);
+        assertEq(address(a).balance, 0.25 ether); // a's balance is 0.25 ether
+        assertEq(address(b).balance, 0.75 ether); // b's balance is 0.75 ether
         a.payHalf();
-        assertEq(address(a).balance, 0.125 ether);
-        assertEq(address(b).balance, 0.875 ether);
+        assertEq(address(a).balance, 0.125 ether); // a's balance is 0.125 ether
+        assertEq(address(b).balance, 0.875 ether); // b's balance is 0.875 ether
     }
 }
