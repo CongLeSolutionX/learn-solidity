@@ -11,7 +11,7 @@ contract ContractTest is Test {
         myContract = new Contract();
     }
 
-    function testSigns() public {
+    function testSigns() public view {
         int8 a = myContract.a();
         int8 b = myContract.b();
         bool onlyAPositive = a > 0 && b < 0;
