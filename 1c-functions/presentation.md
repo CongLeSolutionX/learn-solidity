@@ -6,21 +6,26 @@ marp: true
 
 You can't spell functions without **fun**! 😆 And you must know the keywords 🔑
 
+A function can have 2 type of modifiers: modifier for visibility + modifier for mutability.
+
+Modifiers for visibility are: `private`, `internal`, `public`, `external`.
+Modifiers for mutability: `pure`, `view`, `payable`.
+
 ```js
 contract Example {
-  function example1() private pure {
+  function privatePureFunction() private pure {
     // private: call me within this contract
     // pure: I cannot read/write to storage
   }
-  function example2() internal view {
+  function internalViewFunction() internal view {
     // internal: call me within this contract (+ inheritance!)
     // view: I can read from storage, not write
   }
-  function example3() public payable {
+  function publicPayableFunction() public payable {
     // public: call me inside and outside this contract
     // payable: send me some ether!
   }
-  function example4() external {
+  function externalFunction() external {
     // external: call me from outside this contract
   }
 }
