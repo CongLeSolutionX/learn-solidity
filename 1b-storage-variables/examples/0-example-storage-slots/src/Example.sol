@@ -4,13 +4,18 @@ pragma solidity ^0.8.20;
 import "forge-std/console.sol";
 
 contract Example {
+    // Storage variables are permanently stored in contract storage.
+    // This means they are written to the Ethereum blockchain.
+
     // The default value of storage variables is 0.
-    uint256 a = 100;                  // storage slot - 0x0
-    uint256 b = type(uint256).max;    // storage slot - 0x1
+    uint256 a = 100;                    // storage slot - 0x0
+    uint256 b = type(uint256).max;      // storage slot - 0x1
     
     // The default value of boolen is false
-    bool c = true;                   // storage slot - 0x2
-    bool d;                         // storage slot - 0x3
+    bool c = true;                      // storage slot - 0x2
+    bool d;                             // storage slot - 0x3
+
+    uint256 constant e = 50;            // storage slot - 0x4
 
     constructor() {
         // SSTORE - store to some storage location
@@ -24,6 +29,8 @@ contract Example {
         bytes32 boolenHexFormValue;
 
         bool boolenValue;
+
+        uint256 constantValue;
         assembly {
             x := sload(0x0)
             y := sload(0x0)
@@ -33,6 +40,8 @@ contract Example {
             boolenHexFormValue          := sload(0x2)
 
             boolenValue                 := sload(0x3)
+
+            constantValue               := sload(0x4)
         }
         console.log("Decimal value of x at 0x0: %s", x); // x should return the same value as a at location 0x0
         console.logBytes32(y); // y should return the value of a at location 0x0 in hex format
@@ -43,6 +52,8 @@ contract Example {
 
         console.logBytes32(boolenHexFormValue); // return hex value of 1
 
-        console.log("boolenValue will return the default value as: %s", boolenValue); // return false as the default value of boolen is false
+        console.log("boolenValue will return the default value as: %s", boolenValue); // return false
+
+        console.log("constantValue at location 0x4: %s", constantValue); // return 0 as constant value is not stored in storage location 0x4
     }
 }
