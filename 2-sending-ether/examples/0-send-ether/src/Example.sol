@@ -9,13 +9,13 @@ contract A {
     constructor(address _b) payable {
         b = _b;
 
-        console.log("A deployed at", address(this));
-        console.log("A deployed with balance", address(this).balance);
+        console.log("a deployed at address:", address(this));
+        console.log("a deployed with ether balance of", address(this).balance);
         
-        console.log("b deployed at", b);
-        console.log("b balance", address(b).balance);
+        console.log("b deployed at address:", b);
+        console.log("b deployed with ether balance of", address(b).balance); // 0 ether
     
-        console.log(msg.value);
+        console.log(msg.value); // 1 ether
     }
 
     function payHalf() external {
@@ -26,5 +26,5 @@ contract A {
 }
 
 contract B {
-    receive() external payable {}
+    receive() external payable {} // allow contract B to receive ether
 }
