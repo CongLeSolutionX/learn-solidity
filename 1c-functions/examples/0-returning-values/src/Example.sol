@@ -7,7 +7,9 @@ contract Example {
     uint256 public sum;
     uint256 public product;
 
-    // By default, Solidity only have 1 constructor per contract
+    // The constructor function is invoked only once
+    // during the contract's deployment and never again.
+    // It is generally used for setting up initial contract values.
     constructor(uint256 x, uint256 y, bool useSum, bool useProduct) {
         if (useSum) {
             sum = add(x,y);
