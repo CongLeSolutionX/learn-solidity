@@ -36,16 +36,16 @@ contract Example {
 
         console.logInt(type(int8).min);
         console.logInt(type(int8).max);
-       }
+        }
         
        //console.log("a: %s", a); // use `forge test -vv` to show log on the console.
        //console.log("b: %s", b);
 
-       if(myCondition) {
-              console.log("myCondition is true");
-         } else {
-              console.log("myCondition is false");
-       }
+        if(myCondition) {
+            console.log("myCondition is true");
+        } else {
+            console.log("myCondition is false");
+        }
 
        if (choice == Choice.Up) {
            console.log("choice is Up");

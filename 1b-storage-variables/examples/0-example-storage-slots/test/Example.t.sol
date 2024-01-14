@@ -11,5 +11,5 @@ contract ExampleTest is Test {
         example = new Example();
     }
 
-    function testExample() public view {}
+    function testStorageVariablesExample() public view {}
 }
