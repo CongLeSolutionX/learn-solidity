@@ -7,23 +7,45 @@ import "../src/Example.sol";
 
 contract ExampleTest is Test {
     Example public example;
-
+    uint256 firstValue;
+    uint256 secondValue;
+    bool isUsingSum;
+    bool isUsingProduct;
+    
     function setUp() public {
+        // Initialization if needed
     }
 
     function testSum() public {
-        example = new Example(4, 4, true, false);
+        // Assuming we only want to so sum with initial values
+        firstValue = 4;
+        secondValue = 4;
+        isUsingSum = true;
+        isUsingProduct = false;
+
+        example = new Example(firstValue, secondValue, isUsingSum, isUsingProduct);
         assertEq(example.sum(), 8);
     }
 
     function testProduct() public {
-        example = new Example(4, 4, false, true);
+        // Assuming we only want to so product with initial values
+        firstValue = 4;
+        secondValue = 4;
+        isUsingSum = false;
+        isUsingProduct = true;
+
+        example = new Example(firstValue, secondValue, isUsingSum, isUsingProduct);
         assertEq(example.product(), 16);
     }
 
     function testSumAndProduct() public {
         // Assuming we want to test both calculations with different initial values
-        example = new Example(2, 3, false, false);
+        firstValue = 2;
+        secondValue = 3;
+        isUsingSum = false;
+        isUsingProduct = false;
+        
+        example = new Example(firstValue, secondValue, isUsingSum, isUsingProduct);
         assertEq(example.sum(), 5);
         assertEq(example.product(), 6);
     }

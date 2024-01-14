@@ -7,6 +7,7 @@ contract Example {
     uint256 public sum;
     uint256 public product;
 
+    // By default, Solidity only have 1 constructor per contract
     constructor(uint256 x, uint256 y, bool useSum, bool useProduct) {
         if (useSum) {
             sum = add(x,y);
