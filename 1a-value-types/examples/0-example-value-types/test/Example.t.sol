@@ -11,5 +11,9 @@ contract ExampleTest is Test {
         example = new Example();
     }
 
+    // function setUp() public {
+    //     example = new Example(Example.Choice.Down);
+    // }
+
     function testExample() public {}
 }
