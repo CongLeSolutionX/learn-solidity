@@ -33,6 +33,7 @@ forge test -vvvv --match-test testBools
 forge test -vvvv --match-test testA
 forge test -vvvv --match-test testB
 forge test -vvvv --match-test testSum
+# ...
 # The last argument in the command line is the name of the test
 ```
 
